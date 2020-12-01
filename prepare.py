@@ -68,7 +68,7 @@ for root, dirs, files in os.walk(train_path, topdown=True):
 #---------------------------------------
 #train_val
 train_path = download_path + '/bounding_box_train'
-train_save_path = download_path + '/pytorch/train'
+train_save_path = download_path + '/pytorch/train_new'
 val_save_path = download_path + '/pytorch/val'
 if not os.path.isdir(train_save_path):
     os.mkdir(train_save_path)
