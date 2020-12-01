@@ -34,7 +34,7 @@ from torch.utils.data import Dataset,DataLoader
 parser = argparse.ArgumentParser(description='Training')
 #parser.add_argument('--gpu_ids',default='3', type=str,help='gpu_ids: e.g. 0  0,1,2  0,2')
 parser.add_argument('--name',default='ft_DesNet121', type=str, help='output model name')
-parser.add_argument('--data_dir',default='/home/gq123/guanqiao/deeplearning/reid/market/pytorch',type=str, help='training dir path')
+parser.add_argument('--data_dir',default='/./Market-1501/pytorch',type=str, help='training dir path')
 parser.add_argument('--batchsize', default=64, type=int, help='batchsize')
 parser.add_argument('--erasing_p', default=0.8, type=float, help='Random Erasing probability, in [0,1]')
 parser.add_argument('--use_dense', action='store_true', help='use densenet121' )
@@ -329,7 +329,7 @@ optimizer_ft = optim.SGD([
              {'params': model.classifier.parameters(), 'lr': 0.05}
          ], momentum=0.9, weight_decay=5e-4, nesterov=True)
 
-model=nn.DataParallel(model,device_ids=[0,1,2]) # multi-GPU
+# model=nn.DataParallel(model) # multi-GPU
 
 # Decay LR by a factor of 0.1 every 40 epochs
 exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=40, gamma=0.1)
